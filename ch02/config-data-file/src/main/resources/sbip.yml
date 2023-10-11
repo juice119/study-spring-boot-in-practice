@@ -1,0 +1,4 @@
+# --spring.config.name=sbip
+
+server:
+  port: 9999
