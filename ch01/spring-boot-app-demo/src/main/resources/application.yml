@@ -1,0 +1,10 @@
+#https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html 에서 속성 확인 가능
+
+server:
+  address: localhost
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
