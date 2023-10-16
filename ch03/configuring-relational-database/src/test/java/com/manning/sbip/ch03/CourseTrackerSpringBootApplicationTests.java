@@ -16,7 +16,8 @@ class CourseTrackerSpringBootApplicationTests {
 
     @Test
     void givenDatasourceAvailableWhenAccessDetailsThenExpectDetails() throws SQLException {
-        assertThat(dataSource.getClass().getName()).isEqualTo("com.zaxxer.hikari.HikariDataSource");
+        // assertThat(dataSource.getClass().getName()).isEqualTo("com.zaxxer.hikari.HikariDataSource");
+        assertThat(dataSource.getClass().getName()).isEqualTo("org.apache.tomcat.jdbc.pool.DataSource");
         assertThat(dataSource.getConnection().getMetaData().getDatabaseProductName()).isEqualTo("H2");
     }
 }
