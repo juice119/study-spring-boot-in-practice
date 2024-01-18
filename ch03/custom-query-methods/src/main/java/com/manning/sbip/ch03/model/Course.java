@@ -7,12 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "COURSES")
-@NamedQuery(name = "Course.findAllByCategoryAndRating", query = "SELECT c FROM Course c WHERE c.category=?1 and c.rating=?2")
+//@NamedQuery(name = "Course.findAllByCategoryAndRating", query = "SELECT c FROM Course c WHERE c.category=?1 and c.rating=?2")
 public class Course {
 
     @Id
