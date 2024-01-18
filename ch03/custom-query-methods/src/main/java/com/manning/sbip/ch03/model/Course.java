@@ -1,11 +1,18 @@
 package com.manning.sbip.ch03.model;
 
 
-import javax.persistence.*;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "COURSES")
+@NamedQuery(name = "Course.findAllByCategoryAndRating", query = "SELECT c FROM Course c WHERE c.category=?1 and c.rating=?2")
 public class Course {
 
     @Id
@@ -25,7 +32,8 @@ public class Course {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    public Course() {}
+    public Course() {
+    }
 
     public Course(String name, String category, int rating, String description) {
         this.name = name;
@@ -76,11 +84,14 @@ public class Course {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Course)) return false;
-        Course course = (Course) o;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Course course)) {
+            return false;
+        }
         return Objects.equals(name, course.name) &&
-                Objects.equals(category, course.category);
+            Objects.equals(category, course.category);
     }
 
     @Override
@@ -91,12 +102,12 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", rating=" + rating +
-                ", description='" + description + '\'' +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", category='" + category + '\'' +
+            ", rating=" + rating +
+            ", description='" + description + '\'' +
+            '}';
     }
 }
 
