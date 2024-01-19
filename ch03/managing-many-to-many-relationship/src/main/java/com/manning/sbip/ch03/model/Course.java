@@ -1,6 +1,8 @@
 package com.manning.sbip.ch03.model;
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -24,6 +26,9 @@ public class Course {
 
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @ManyToMany(mappedBy = "courses")
+    private Set<Author> authors = new HashSet<>();
 
     public Course() {}
 
@@ -72,6 +77,9 @@ public class Course {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public Set<Author> getAuthors() {
+        return authors;
     }
 
     @Override
